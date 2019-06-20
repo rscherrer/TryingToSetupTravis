@@ -2,11 +2,21 @@ language: cpp
 dist: xenial
 compiler: gcc
 
-script:
+script: 
+
+ # Test that it compiles in debug mode
  - echo "Debug mode"
  - g++ main.cpp
  - ./a.out
+ 
  # Release mode
+  - echo "Release mode"
  - g++ -DNDEBUG main.cpp
  - ./a.out
+ 
+ # Check syntax
+ - ./do_oclint
+ 
+ # Check documentation
+ - ./check_doc
  
