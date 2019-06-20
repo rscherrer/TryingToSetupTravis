@@ -1,4 +1,6 @@
 language: cpp
+dist: xenial
+compiler: gcc
 
 script:
  - echo "Debug mode"
