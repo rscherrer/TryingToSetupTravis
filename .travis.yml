@@ -2,6 +2,11 @@ language: cpp
 dist: xenial
 compiler: gcc
 
+install:
+ # shared install
+ - wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/install
+ - chmod +x install
+
 script: 
  # Test that it compiles in debug mode
  - echo "Debug mode"
