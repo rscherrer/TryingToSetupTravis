@@ -5,8 +5,7 @@ compiler: gcc
 install:
  - chmod +x ./setup/install
  - sudo ./setup/install
- - sudo apt install -qq cppcheck
- - echo "cppcheck installed"
+ #- sudo apt install -qq cppcheck
  - g++ -v
 
 script: 
