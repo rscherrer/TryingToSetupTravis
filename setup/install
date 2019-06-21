@@ -8,8 +8,7 @@ chmod +x ./setup/install_oclint
 ./install_oclint
 
 # cppcheck
-sudo apt install -qq cppcheck
-echo "cppcheck succesfully installed!"
+# sudo apt install -qq cppcheck
 
 # Doxygen
 sudo apt install -qq doxygen graphviz
