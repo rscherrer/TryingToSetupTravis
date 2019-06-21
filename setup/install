@@ -6,8 +6,7 @@
 sudo pip install codecov
 
 # OCLint
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/install_oclint
-chmod +x install_oclint 
+chmod +x ./setup/install_oclint 
 ./install_oclint
 
 # cppcheck
@@ -17,24 +16,14 @@ sudo apt install -qq cppcheck
 sudo apt install -qq doxygen graphviz
 
 # OCLint
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/do_oclint
-chmod +x do_oclint
+chmod +x ./setup/do_oclint
 
 # Codecov
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/get_code_cov
-chmod +x get_code_cov
+chmod +x ./setup/get_code_cov
 
 # Check guidelines
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/check_cpp_core_guidelines
-chmod +x check_cpp_core_guidelines
+chmod +x ./setup/check_cpp_core_guidelines
 
 # Check documentation
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/check_doc
-chmod +x check_doc
-
-# Check course guidelines
-wget https://raw.githubusercontent.com/richelbilderbeek/correct_cpp/master/shared/check_course_guidelines
-chmod +x check_course_guidelines
-
-# Don't check for main.pro, it will be downloaded by .travis.yml
+chmod +x ./setup/check_doc
 
