@@ -15,4 +15,5 @@ script:
  - ./a.out
  #- cppcheck --quiet --enable=all --error-exitcode=1 . 
  - ./setup/do_oclint
+ - ./check_doc
  
