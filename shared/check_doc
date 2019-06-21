@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# From https://github.com/richelbilderbeek/travis_qmake_gcc_cpp14_doxygen
+
+rm -f tmp.cpp
+rm -f Doxyfile
+rm -f Doxyfile.bak
+
+# Make all .cpp files be read by Doxygen
+for cpp_file in `ls *.cpp`; 
+do 
+  ( echo "/** @file */"; cat $cpp_file ) > tmp.cpp
+  mv tmp.cpp $cpp_file
+done
+
+# Because I cannot get EXCLUDE_PATTERNS to work,
+# as a workaround: remove all files starting with ui_
+rm -f ui_*.*
+
+# Generate standard Doxyfile
+doxygen -g > /dev/null
+
+# Show the undocumented lines
+(cat Doxyfile ; echo "EXCLUDE_PATTERNS += ui_*.*" ; echo "EXCLUDE=README.md" ; echo "QUIET = YES") | doxygen - 2>&1 | egrep "warning"
+
+# Count the number of warnings in the STDOUT and STDERR of Doxygen
+exit_code=`(cat Doxyfile ; echo "EXCLUDE_PATTERNS += ui_*.*" ; echo "EXCLUDE=README.md" ; echo "QUIET = YES") | doxygen - 2>&1 | egrep "warning" | wc --lines`
+
+if [[ ! $exit_code -eq 0 ]]; then
+  echo "Incorrect: incomplete documentation"
+  (cat Doxyfile ; echo "EXCLUDE=README.md" ; echo "QUIET = YES") | doxygen -
+fi
+
+rm -f tmp.cpp
+rm -f Doxyfile
+rm -f Doxyfile.bak
+rm -rf html
+rm -rf latex
+
+exit $exit_code

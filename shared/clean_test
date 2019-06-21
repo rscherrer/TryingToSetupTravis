@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ ! -f test ]; then
+
+  echo "This script is only for cleaning a chapter's folder"
+  echo "Do not use clean_test in other folders"
+
+  exit 1
+
+fi 
+
+rm -rf html
+rm -rf latex
+rm -rf debug
+rm -rf release
+rm -rf check_*
+rm -f Makefile
+rm -f Makefile.Debug
+rm -f Makefile.Release
+rm -f install
+rm -f do_oclint
+rm -f main
+rm -f main.cpp
+rm -f main.pro.user
+rm -f correct_cpp_hello_qt.qrc
+rm -f TravisCI.png
+rm -f .qmake.stash
+rm -f created_*.txt
+rm -f expected_*.txt
+rm -f README.md
+rm -f test_tests
+rm -f install_oclint
+rm -f get_code_cov
+rm -f gmon.out
+rm -f *.h
+rm -f *.cpp
+rm -f *.ui
+rm -f *.qrc
+
+# Also remove itself
+rm clean_test

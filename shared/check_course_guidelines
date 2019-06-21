@@ -1,0 +1,12 @@
+#!/bin/bash
+
+n_errors=0
+
+# Do not use ellipsis
+n=`cat *.cpp | egrep "\(\w*\.\.\.\w*\)" | wc -l`
+if [ ! "$n" -eq "0" ]; then
+  echo "Incorrect: do not use ellipsis, they are unneeded in this course"
+  ((++n_errors))
+fi
+
+exit $n_errors
