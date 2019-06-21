@@ -14,5 +14,5 @@ script:
  - echo "Debug mode"
  - g++ main.cpp
  - ./a.out
- - cppcheck --quiet --enable=all --error-exitcode=1 . 
+ #- cppcheck --quiet --enable=all --error-exitcode=1 . 
  
