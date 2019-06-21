@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# This code is run on each chapter's GitHub
-
 # Codecov
 sudo pip install codecov
 
