@@ -3,6 +3,7 @@ dist: xenial
 compiler: gcc
 
 install:
+ - chmod +x ./setup/install
  - sudo ./setup/install
  - g++ -v
 
